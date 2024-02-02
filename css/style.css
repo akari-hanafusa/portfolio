@@ -291,6 +291,7 @@ input[type="submit"] {
 input[type="submit"]:hover {
   border: 1px #D9D8D7 solid;
   background-color: #fff;
+  color: #333;
 }
 #post {
   margin-top: 100px;
