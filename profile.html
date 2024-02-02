@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>profile - はなふさあかり</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+      <link rel="stylesheet" href="css/style.css">
+
+      <!-- ファビコン -->
+      <link rel="icon" type="image/png" href="images/favicon.png">
+
+  </head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+          <h1><a href="index.html"><img class="logo" src="images/logo.jpg"></a></h1>
+          <div class="menu-wrapper">
+                <div class="btn">
+                    <span class="bar bar-top"></span>
+                    <span class="bar bar-middle"></span>
+                    <span class="bar bar-bottom"></span>
+                </div>
+                <nav class="menu-lists">
+                    <ul>
+                      <li><a href="index.html">home</a></li>
+                      <li><a href="portfolio.html">portfolio</a></li>
+                      <li class="open"><a href="profile.html">profile</a></li>
+                      <li><a href="contact.html">contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main id="profile">
+      <h2 id="page-title">profile</h2>
+        <p class="name fadeUp">はなふさあかり</p>
+        <p class="fadeUp delay-time02">1995年11月16日生まれ<br>静岡県出身<br>Webデザイナーとして活動中</p>
+        <p class="fadeUp delay-time04">好きな食べ物はお米、ラーメン、パン<br>趣味は剣道、特技は餃子を上手に焼くこと</p>
+        <p class="link fadeUp delay-time06">Instagram <a href="https://www.instagram.com/akari.hanafusa/">　@akari.hanafusa　</a></p>
+    </main>
+
+    <footer id="footer">
+      <p id="page-top"><a href="#">^</a></p>
+      <p>&copy; 2024 akari hanafusa</p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
+    <!-- 文字に適用↓ -->
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/8-9/js/8-9.js"></script>
+    <script>
+      'use strict';
+      // フォント
+      (function(d) {
+          var config = {
+          kitId: 'rop5hua',
+          scriptTimeout: 3000,
+          async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+
+      // ハンバーガーメニュー
+      $(function() {
+      $('.btn').on('click',function(){// .btnをクリックすると〜
+        $('.btn').toggleClass('close');// .btnにcloseというクラスが追加される
+        $('nav').fadeToggle(500);// navの表示・非表示切り替わる
+        $('main').fadeToggle(500);// pの表示・非表示切り替わる
+      });
+    });
+
+    // topに戻るボタン
+    //スクロールした際の動きを関数でまとめる
+    function PageTopAnime() {
+      var scroll = $(window).scrollTop();
+      if (scroll >= 200){//上から200pxスクロールしたら
+        $('#page-top').removeClass('DownMove');//#page-topについているDownMoveというクラス名を除く
+        $('#page-top').addClass('UpMove');//#page-topについているUpMoveというクラス名を付与
+      }else{
+        if($('#page-top').hasClass('UpMove')){//すでに#page-topにUpMoveというクラス名がついていたら
+          $('#page-top').removeClass('UpMove');//UpMoveというクラス名を除き
+          $('#page-top').addClass('DownMove');//DownMoveというクラス名を#page-topに付与
+        }
+      }
+    }
+    // 画面をスクロールをしたら動かしたい場合の記述
+    $(window).scroll(function () {
+      PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+    });
+    // ページが読み込まれたらすぐに動かしたい場合の記述
+    $(window).on('load', function () {
+      PageTopAnime();/* スクロールした際の動きの関数を呼ぶ*/
+    });
+    // #page-topをクリックした際の設定
+    $('#page-top a').click(function () {
+        $('body,html').animate({
+            scrollTop: 0//ページトップまでスクロール
+        }, 500);//ページトップスクロールの速さ。数字が大きいほど遅くなる
+        return false;//リンク自体の無効化
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+/* 共通部分
+-------------------------------*/
+html {
+    font-size: 100%;
+}
+body {
+    font-family: "ten-mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+/* HEADER
+-------------------------------*/
+.logo {
+    width: 80px;
+    margin-top: 10px;
+}
+.main-nav {
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    list-style: none;
+}
+.main-nav li {
+    margin-left: 30px;
+}
+.main-nav a {
+    color: #333;
+}
+.main-nav a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.7px;
+    text-underline-offset: 0.6em;
+    /* color: #666; */
+}
+.page-header { /* 不要？入れてない */
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* 名前アニメーション
+-------------------------------*/
+.textAnime {
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 220px;
+    letter-spacing: 10px;
+    color: #333;
+}
+.textAnime span{
+    display: inline-block;
+    font-size: 40px;
+    letter-spacing: 12px;
+    line-height: 1;
+    -webkit-text-stroke: 1px #555;
+    transform: translateY(50px);
+    animation: textAnime 3s infinite alternate;
+}
+@keyframes textAnime {
+    100%{
+    transform: translateY(0px);
+    }
+}
+
+/* スマホ対応時
+-------------------------------*/
+@media only screen and (max-width: 768px) {
+    .header {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+      .logologo {
+        font-weight: 700;
+        padding-left: 14px;
+      }
+      .hamburger-menu {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        border: none;
+        background: transparent;
+        appearance: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .hamburger-menu__bar {
+        display: inline-block;
+        width: 44%;
+        height: 2px;
+        background: #242424;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: .5s;
+      }
+      .hamburger-menu__bar:first-child {
+        top: 16px;
+      }
+      .hamburger-menu__bar:nth-child(2) {
+        top: 24px;
+      }
+      .hamburger-menu__bar:last-child {
+        top: 32px;
+      }
+      .hamburger-menu--open .hamburger-menu__bar {
+        top: 50%;
+      }
+      .hamburger-menu--open .hamburger-menu__bar:first-child {
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+      .hamburger-menu--open .hamburger-menu__bar:last-child {
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      }
+      .hamburger-menu--open .hamburger-menu__bar:nth-child(2) {
+        display: none;
+      }
+      .navigation {
+        display: none;
+        background: #242424;
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        z-index: 9999;
+      }
+      .navigation__list {
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .navigation__list-item {
+        border-bottom: solid 1px #474747;
+      }
+      .navigation__list-item:first-child {
+        border-top: solid 1px #474747;
+      }
+      .navigation__link {
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        display: block;
+        padding: 24px 0;
+        transition: .5s;
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .navigation__link:hover {
+          background: #333;
+        }
+      }
+}

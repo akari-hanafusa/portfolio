@@ -1,0 +1,450 @@
+@charset "utf-8";
+
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "ten-mincho", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #333;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+
+/* ===== 共通 ===== */
+#main, #portfolio, #profile, #contact, #post {
+  width: 80%;
+  margin: 0 auto;
+}
+/* ふわっと表示 */
+.fadeUp{
+  animation-name:fadeUpAnime;
+  animation-duration:1.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+.fadeUpTrigger{
+  opacity: 0;
+}
+/* アニメーションスタートの遅延時間を決めるCSS*/
+.delay-time02{
+  animation-delay: 0.2s;
+}
+.delay-time04{
+  animation-delay: 0.4s;
+}
+.delay-time06{
+  animation-delay: 0.6s;
+}
+
+/* ===== ヘッダー ===== */
+.logo {
+  width: 80px;
+  margin-top: 10px;
+}
+.header{
+    /* background-color: rgb(237, 100, 100);  */
+    background-color: #fff;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    /* max-width: 1100px; */
+    /* margin: 0 auto; */
+    padding: 0 8%;
+}
+.header-inner{
+    display: flex;
+    justify-content: space-between;
+}
+.menu-wrapper{
+    position: relative;
+}
+.menu-lists ul{
+    display: flex;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    list-style: none;
+}
+.menu-lists ul li{
+    padding: 10px;
+    margin-left: 30px;
+}
+.menu-lists ul li a {
+  color: #333;
+  padding-top: 5px;
+  position: relative;
+}
+/* .menu-lists ul li a:hover {
+  text-decoration: underline #59544F;
+  text-decoration-thickness: 0.7px;
+  text-underline-offset: 0.6em;
+}
+ */
+.menu-lists ul li a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: -0.3em;
+  left: 0;
+  /*線の形状*/
+  width: 100%;
+  height: 0.7px;
+  background:#59544F;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);/*X方向0、Y方向1*/
+  transform-origin: left top;/*左上基点*/
+}
+.menu-lists ul li.current a::after,
+.menu-lists ul li a:hover::after {
+    transform: scale(1, 1);/*X方向にスケール拡大*/
+}
+.open {
+  text-decoration: underline #59544F;
+  text-decoration-thickness: 0.7px;
+  text-underline-offset: 0.6em;
+}
+
+/* ===== 名前アニメーション ===== */
+#main p {
+  padding-top: 350px;
+  letter-spacing: 0.4em;
+  color: #333;
+  text-align: center;
+  font-size: 40px;
+}
+.blur{
+  animation-name:blurAnime;
+  animation-duration:2.5s;
+  animation-fill-mode:forwards;
+}
+@keyframes blurAnime{
+  from {
+  filter: blur(10px);
+  transform: scale(1.02);
+  opacity: 0;
+  }
+  to {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  }
+}
+.blurTrigger{
+    opacity: 0;
+}
+
+/* ===== フッター ===== */
+#footer {
+  width: 100%;
+  height: 100px;
+  background-color: #D9D8D7;
+  text-align: center;
+  padding: 35px;
+  font-size: 1.2rem;
+}
+
+/* ===== ポートフォリオ ===== */
+#page-title {
+  font-size: 1.8rem;
+  padding-top: 150px;
+  padding-bottom: 20px;
+}
+.port-contents {
+  font-size: 1.3rem;
+  padding-top: 30px;
+  margin-left: 2%;
+  position:relative;
+}
+.port-contents span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  color: #333;
+  white-space: nowrap;
+}
+.port-contents span::before{
+  content: "";
+  display: inline-block;
+  width: 1.5em;
+  border-top: 1px solid;
+  vertical-align: middle;
+  margin-right: 0.3em;
+  padding-bottom:4px;
+}
+#grid {
+  display: grid;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 6%;
+  margin-bottom: 50px;
+  margin-left: 3%;
+}
+#grid p {
+  padding-left: 10px;
+}
+
+/* ===== プロフィール ===== */
+#profile p {
+  margin-left: 2%;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 180%;
+  opacity: 0;
+}
+#profile .name {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+#profile .link {
+  margin-bottom: 50px;
+}
+#profile p a {
+  color: #333;
+  position: relative;
+}
+#profile p a::after {
+  content: '';
+    /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+    /*背景の形状*/
+  width: 0;
+  height:100%;
+  background:#D9D8D7;
+    /*アニメーションの指定*/
+  transition:all .5s;
+  opacity: 0;/*はじめは透過0*/
+}
+/*現在地とhoverの設定*/
+#profile p.current a::after,
+#profile p a:hover::after {
+    /*背景の形状*/
+  width: 100%;/*横幅を伸ばす*/
+  opacity: 1;/*不透明に*/
+}
+#profile p.current a,
+#profile p a:hover{
+    color: #333;
+}
+
+/* ===== コンタクト ===== */
+#contact p {
+  margin-bottom: 20px;
+  padding-left: 2%;
+  font-size: 1rem;
+  color: #59544F;
+}
+form div {
+  margin-bottom: 14px;
+  margin-left: 2%;
+}
+label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+input[type="text"], input[type="email"], textarea {
+  border: #D9D8D7 1px solid;
+  padding: 10px;
+  font-size: 1rem;
+}
+input[type="text"], input[type="email"] {
+  width: 100%;
+  max-width: 300px;
+}
+textarea {
+  width: 100%;
+  max-width: 480px;
+  height: 6rem;
+}
+input[type="submit"] {
+  background-color: #D9D8D7;
+  padding: 10px 40px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-left: 2%;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  border: 1px #D9D8D7 solid;
+  background-color: #fff;
+}
+#post {
+  margin-top: 100px;
+  font-size: 1.2rem;
+}
+
+/* ===== topに戻るボタン ===== */
+#page-top a{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background: #8C8880;
+  /* border-radius: 5px; */
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  /* text-transform: uppercase;  */
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition:all 0.3s;
+}
+#page-top a:hover{
+  background: #59544F;
+  color: #fff;
+}
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 10px;
+  bottom:10px;
+  z-index: 2;
+    /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+/*　上に上がる動き　*/
+#page-top.UpMove{
+  animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+/*　下に下がる動き　*/
+#page-top.DownMove{
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+    opacity: 1;
+  transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(100px);
+  }
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width:768px){
+    /* ハンバーガーメニュー */
+    .header {
+      padding: 0 4%;
+    }
+    .btn{
+        width: 100%;
+        display: block;
+        width: 39px;   
+        height: 39px;
+        position: absolute;
+        margin-top: 20px;
+        right: 0;
+        z-index: 999;/*追記：いつも一番上*/
+    }
+    .bar{      
+        width: 25px;      
+        height: 2px;        
+        display: block;      
+        position: absolute;      
+        left: 50%;      
+        transform: translateX(-50%);      
+        background-color: #000;    
+    } 
+    .bar-top{ 
+        top: 10px;
+    }
+    .bar-middle{    
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .bar-bottom{ 
+        bottom: 10px;
+    }
+    .btn.close .bar-top{      
+        transform: translate(-50%,10px) rotate(45deg);      
+        transition: transform .3s;    
+    }  
+    .btn.close .bar-middle{      
+        opacity: 0;       
+        transition: opacity .3s;    
+    }    
+    .btn.close .bar-bottom{      
+        transform: translate(-50%,-8px) rotate(-45deg);      
+        transition: transform .3s;    
+    }
+    .menu-lists{
+        display: none;
+        background-color: #D9D8D7;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 50px;
+        text-align: center;
+    }
+    .menu-lists ul{
+        display: block;
+    }
+    .btn.close #main p {
+      display: none;
+    }
+    #main p {
+      font-size: 30px;
+    }
+    #page-title {
+      font-size: 1.4rem;
+    }
+    .port-contents {
+      font-size: 1.2rem;
+    }
+    #profile p {
+      font-size: 1rem;
+    }
+    #profile .name {
+      font-size: 1.3rem;
+    }
+    #contact p {
+      font-size: 0.9rem;
+    }    
+    label {
+      font-size: 1rem;
+    }
+    input[type="submit"] {
+      font-size: 1rem;
+      padding: 10px 30px;
+    }
+    #footer {
+      font-size: 1rem;
+    }
+}
