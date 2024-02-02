@@ -280,6 +280,7 @@ textarea {
 }
 input[type="submit"] {
   background-color: #D9D8D7;
+  color: #333;
   padding: 10px 40px;
   font-size: 1.2rem;
   margin-top: 10px;
