@@ -60,8 +60,8 @@ img {
   margin-top: 10px;
 }
 .header{
-    background-color: rgb(237, 100, 100); 
-    /* background-color: #fff; */
+    /* background-color: rgb(237, 100, 100);  */
+    background-color: #fff;
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -366,6 +366,10 @@ input[type="submit"]:hover {
     /* ハンバーガーメニュー */
     .header {
       padding: 0 4%;
+      height: 80px;
+    }
+    .logo {
+      width: 60px;
     }
     .btn{
         width: 100%;
@@ -431,7 +435,7 @@ input[type="submit"]:hover {
     }
     #page-title {
       font-size: 1.4rem;
-      padding-top: 120px;
+      padding-top: 100px;
     }
     .port-contents {
       font-size: 1.2rem;
@@ -458,12 +462,6 @@ input[type="submit"]:hover {
 }
 
 @media (max-height:420px) {
-  .logo {
-    width: 60px;
-  }
-  .header {
-    height: 80px;
-  }
   #page-title {
     padding-top: 90px;
   }
