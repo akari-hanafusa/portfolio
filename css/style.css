@@ -60,8 +60,8 @@ img {
   margin-top: 10px;
 }
 .header{
-    /* background-color: rgb(237, 100, 100);  */
-    background-color: #fff;
+    background-color: rgb(237, 100, 100); 
+    /* background-color: #fff; */
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -427,9 +427,11 @@ input[type="submit"]:hover {
     }
     #main p {
       font-size: 30px;
+      padding-top: 300px;
     }
     #page-title {
       font-size: 1.4rem;
+      padding-top: 120px;
     }
     .port-contents {
       font-size: 1.2rem;
@@ -453,4 +455,19 @@ input[type="submit"]:hover {
     #footer {
       font-size: 1rem;
     }
+}
+
+@media (max-height:420px) {
+  .logo {
+    width: 60px;
+  }
+  .header {
+    height: 80px;
+  }
+  #page-title {
+    padding-top: 90px;
+  }
+  #main p {
+    padding-top: 200px;
+  }
 }
