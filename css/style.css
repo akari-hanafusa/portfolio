@@ -201,6 +201,18 @@ img {
 #grid p {
   padding-left: 10px;
 }
+.item img {
+  transform: scale(1);
+	transition: .3s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+.item:hover img{/*hoverした時の変化*/
+	transform: scale(1.2);/*拡大の値を変更したい場合はこの数値を変更*/
+}
+.mask{
+  display: block;
+  line-height: 0;/*行の高さを0にする*/
+  overflow: hidden;/*拡大してはみ出る要素を隠す*/
+}
 
 /* ===== プロフィール ===== */
 #profile p {
